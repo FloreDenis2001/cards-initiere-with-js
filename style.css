@@ -62,7 +62,50 @@ header{
     width: 200px;
     height: 30px;
 }
+.post{
+    background-color: rgb(27, 37, 56);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+.add-post{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.add-post input{
+    background-color: rgb(36, 145, 121);
+    color: white;
+    margin-left:30px;
+    width: 200px;
+    height: 30px;
+}
 
+.add-post input::placeholder{
+color: white;
+}
+
+.add-btn ,.exit-btn{
+    margin-top: 30px;
+    background-color:rgb(40, 163, 132);
+    width: 100px;
+    color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 30px;
+    font-size: 1em;
+    font-weight:bolder;
+    border: 1px rgb(142, 134, 148) groove;
+}
+
+.close-option{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+}
 
 label,input{
     display: block;
@@ -126,7 +169,7 @@ label,input{
     align-items: center;
 }
 
-.card button{
+.rezervare-btn{
     background-color: rgb(13, 20, 19);
     width: 140px;
     color: white;
@@ -139,4 +182,114 @@ label,input{
 
 .card img:hover{
     scale:1.06;
+}
+
+.card span{
+    margin-left:3px;
+    margin-right: 3px;
+}
+
+.btn-cards{
+    display:flex;
+    flex-direction: row;
+}
+
+.delete-btn{
+    background-color:rgb(126, 73, 73);
+    width: 140px;
+    color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 50px;
+    font-size: 1em;
+    font-weight:bolder;
+    border: 1px rgb(142, 134, 148) groove;
+}
+.anim{    
+    margin-top: 50px;
+    background-color:rgb(40, 163, 132);
+    width: 140px;
+    color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 50px;
+    font-size: 1em;
+    font-weight:bolder;
+    border: 1px rgb(142, 134, 148) groove;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+
+}
+
+.anim:before{
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color:rgb(27, 37, 56); 
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transform:rotateX(-90deg);
+    transition: transform 1s;
+}
+
+.anim:after{
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color:rgb(27, 37, 56); 
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transform:rotateY(90deg);
+    transition: transform 1s;
+}
+.anim:hover:after{
+    transform:rotateY(0);
+}
+
+.anim:hover:before{
+    transform:rotateX(0);
+}
+.anim:hover{
+    color:rgb(40, 163, 132);    
+    border: 1px solid rgb(40, 163, 132); 
+}
+
+.post-btn{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   align-content: center; 
+}
+.exit-btn{
+    background-color:rgb(126, 73, 73);
+    margin-left: 20px;
+    position: relative;
+}
+.exit-btn:before{
+    content: "CANCEL";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(40, 153, 147);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transform: scale(2);
+    opacity: 0;
+    transition :all 1s;
+}
+.exit-btn:hover:before{
+    transform: scale(1);
+    opacity: 1;
+}
+
+.btn-filters{
+    margin-left: 20px;
 }
