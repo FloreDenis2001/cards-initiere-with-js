@@ -15,69 +15,38 @@
             <h3 class="search-head">Search</h3>
 
             <div class="input-search">
-            <input  type="text" placeholder="incepe o cautare">
+            <input class="text-search" type="text" placeholder="incepe o cautare">
             <button class="btn-search">Search<i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
         </div>
+
+       <button class="create-post anim">CREATE POST</button>
+       <button class="btn-filters anim">FILTER</button>
+      
+
     </header>
 
     <main>
-        <section class="cards-container">
-            <article class="card item1">
-                <h2>Adam Intunecatul</h2>
-                <img src="/img/adam.png" alt="error">
-                <p>Fantastic , Actiune , Sf</p>
-                <footer> <p>Duration : 2h 50 min</p><br>
-                </footer>
-                <button>Rezervare Online</button>
-            </article>
-        
-            <article class="card item2">
-                <h2>Avatar</h2>
-                <img src="/img/avatar2.jpg" alt="error" >
-                <p>Documentar,Biografic</p>
-                <footer> <p>Duration : 3h</p><br>
-                    <button>Rezervare Online</button>
-                </footer>
-            </article>
-        
-            <article class="card item3">
-                <h2>Medieval</h2>
-                <img src="/img/medieval.jpg" alt="error">
-                <p>Drama , Actiune , Istorie</p>
-                <footer> <p>Duration : 2h 50 min</p><br>
-                    <button>Rezervare Online</button>
-                </footer>
-            </article>
-        
-            <article class="card item4">
-                <h2>Men</h2>
-                <img src="/img/men.jpg" alt="error" >
-                <p>Drama , Fantastic , Horror</p>
-                <footer> <p>Duration : 2h</p><br>
-                    <button>Rezervare Online</button>
-                </footer>
-            </article>
-        
-            <article class="card item5">
-                <h2>Zambeste</h2>
-                <img src="/img/zambeste.jpg" alt="error">
-                <p>Horror</p>
-                <footer> <p>Duration : 2h</p><br>
-                    <button>Rezervare Online</button>
-                </footer>
-            </article>
+        <section class="post">  
 
-            <article class="card item6">
-                <h2>Zambeste</h2>
-                <img src="/img/ennio.jpg" alt="error">
-                <p>Horror</p>
-                <footer> <p>Duration : 2h</p><br>
-                    <button>Rezervare Online</button>
-                </footer>
-            </article>
+            <div class="add-post">
+            <input class="add-nameOfMovie" type="text" placeholder="nameOfMovie">
+            <input class="type-movie" type="text" placeholder="type">
+            <input class="duration-movie" type="number" min="120" max="210" placeholder="120" >
+         </div>
+       
+         <div class="post-btn">
+         <button class="add-btn">ADD POST</button>
+         <button class="exit-btn">EXIT</button>
+         </div>
+
+        </section>
+        <section class="cards-container">
         </section>
     </main>
-    
+  
+    <script src="/data.js"></script>
+    <script src="/function.js"></script>
+    <script src="/app.js"></script>
 </body>
 </html>
