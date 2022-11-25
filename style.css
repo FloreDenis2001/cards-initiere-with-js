@@ -1,5 +1,10 @@
 body{
     margin:0;
+    overflow-y: scroll;
+}
+
+body::-webkit-scrollbar{
+   display: none;
 }
 
 header{
@@ -8,7 +13,10 @@ header{
     display: flex;
     flex-direction: row;
     align-items: center;
-  
+   position: sticky;
+   width: 100%;
+   z-index: 7;
+   top:0px;
 }
 
 .header-brand{
@@ -62,7 +70,7 @@ header{
     width: 200px;
     height: 30px;
 }
-.post{
+.post,.filter{
     background-color: rgb(27, 37, 56);
     display: flex;
     flex-direction: column;
@@ -88,17 +96,6 @@ header{
 color: white;
 }
 
-.add-btn ,.exit-btn{
-    margin-top: 30px;
-    background-color:rgb(40, 163, 132);
-    width: 100px;
-    color: white;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    height: 30px;
-    font-size: 1em;
-    font-weight:bolder;
-    border: 1px rgb(142, 134, 148) groove;
-}
 
 .close-option{
     color: white;
@@ -119,8 +116,16 @@ label,input{
    display: flex;
    flex-direction: row;
    flex-wrap: wrap;
+   height: 75vh;
+   overflow-y: scroll;
+   -ms-overflow-style: none;
+   scrollbar-width: none;
 
 }
+.cards-container::-webkit-scrollbar{
+    display: none;
+}
+
 .card img{
     width:300px; 
     height:400px;
@@ -169,16 +174,6 @@ label,input{
     align-items: center;
 }
 
-.rezervare-btn{
-    background-color: rgb(13, 20, 19);
-    width: 140px;
-    color: white;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    height: 50px;
-    font-size: 1em;
-    font-weight:bolder;
-    border: 1px rgb(81, 32, 114) groove;
-}
 
 .card img:hover{
     scale:1.06;
@@ -194,16 +189,6 @@ label,input{
     flex-direction: row;
 }
 
-.delete-btn{
-    background-color:rgb(126, 73, 73);
-    width: 140px;
-    color: white;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    height: 50px;
-    font-size: 1em;
-    font-weight:bolder;
-    border: 1px rgb(142, 134, 148) groove;
-}
 .anim{    
     margin-top: 50px;
     background-color:rgb(40, 163, 132);
@@ -264,32 +249,192 @@ label,input{
    align-items: center;
    align-content: center; 
 }
-.exit-btn{
-    background-color:rgb(126, 73, 73);
+.add-btn,.exit-btn{
+    background-color:rgb(27, 37, 56);
     margin-left: 20px;
     position: relative;
+    margin-top: 30px;
+    width: 100px;
+    color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 30px;
+    font-size: 1em;
+    font-weight:bolder;
+    border: 1px solid rgb(40, 163, 132); 
+    z-index: 0;
+    overflow: hidden;
 }
 .exit-btn:before{
-    content: "CANCEL";
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgb(40, 153, 147);
+    background-color:rgb(126, 73, 73);
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     height: 100%;
-    transform: scale(2);
-    opacity: 0;
-    transition :all 1s;
+    transform: translateX(-100%);
+    z-index: -1;
+    transition :all 0.5s;
 }
 .exit-btn:hover:before{
-    transform: scale(1);
-    opacity: 1;
+    transform: translateX(0);
+}
+
+.exit-btn:hover{
+    border: 1px solid rgb(126, 73, 73); 
 }
 
 .btn-filters{
     margin-left: 20px;
+}
+
+.add-btn::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(40, 163, 132); 
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-100%);
+    z-index: -1;
+    transition :all 0.5s;
+}
+
+.add-btn:hover:before{
+    transform: translateX(0);
+}
+
+.filter{
+    display: grid;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter-type{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.4em;
+}
+
+.type-select{
+    margin-left:10px;
+    width: 110px;
+    height: 25px;
+    color: white;
+    font-weight:bold;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color:rgb(40, 163, 132);
+    border: 1px solid rgb(40, 163, 132);
+}
+.type-select option{
+    font-weight:bold;
+}
+
+.last-footer{
+    padding: 1px;
+    background-color:rgb(27, 37, 56);
+    color:rgb(40, 163, 132);
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.4em;
+}
+
+.edit-btn,.delete-btn,.rezervare-btn{
+    background-color: rgb(27, 37, 56);
+    width: 140px;
+    color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    height: 50px;
+    font-size: 1em;
+    font-weight:bolder;
+    border: 3px rgb(40, 163, 132) solid;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+.edit-btn{
+    border-radius: 20px 0px 20px 0px;
+}
+
+.delete-btn{
+    border-radius: 0px 20px 0px 20px;
+}
+
+.edit-btn:before{
+    content: "";
+    position: absolute;
+    top:-20%;
+    left:-10%;
+    background-color:rgb(183, 190, 114);
+    transform: rotate(160deg) translateX(110%);
+    border-radius: 0px;
+    width: 120%;
+    height: 150%;
+    z-index: -1;
+    transition: all 0.5s;
+}
+.edit-btn:hover:before{
+    transform: rotate(0) translateX(0);
+}
+
+.edit-btn:hover{
+    color: white;
+    border-color: rgb(183, 190, 114);
+    transition: border-color 1s;
+}
+
+.delete-btn:before{
+    content: "";
+    position: absolute;
+    top:-20%;
+    left:0;
+    background-color:rgb(126, 73, 73);
+    transform: rotate(-160deg) translateX(-110%);
+    width: 100%;
+    height: 160%;
+    z-index: -1;
+    transition: all 0.5s;
+}
+.delete-btn:hover:before{
+    transform: rotate(0) translateX(0);
+}
+
+.delete-btn:hover{
+    color: white;
+    border-color: rgb(126, 73, 73);
+    transition: border-color 1s;
+}
+
+.rezervare-btn:before{
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    background-color:rgb(40, 163, 132);
+    transform:translateY(-100%);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    transition: all 0.5s;
+}
+.rezervare-btn:hover:before{
+    transform: rotate(0) translateX(0);
+}
+
+.rezervare-btn:hover{
+    color: white;
 }
