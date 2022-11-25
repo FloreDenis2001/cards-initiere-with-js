@@ -46,12 +46,34 @@ function createCard(card){
                 <p>${card.type}</p>
                 <footer> <p>Duration<span>(min)</span> :${card.duration}</p><br>
                    <div class"btn-card">
-                    <button class="rezervare-btn">Rezervare Online</button>
+                   <button class="edit-btn id-${card.id}">UPDATE</button>
+                    <button class="rezervare-btn">BUY TICKET</button>
                     <button class="delete-btn id-${card.id}">DELETE</button>
+            
                     </div>
                 </footer>
     </article>
     `
+}
+
+function updateCard(card){
+return `   
+   <article class="card item-${card.id}">
+   <h2>${card.name}</h2>
+   <img src="${card.src}" alt="error">
+   <p>${card.type}</p>
+   <footer> <p>Duration<span>(min)</span> :${card.duration}</p><br>
+   <div class"btn-card">
+   <button class="edit-btn id-${card.id}">UPDATE</button>
+    
+    <button class="cancel-btn id-${card.id}">CANCEL</button>
+
+    </div>
+
+   </footer>
+
+</article>`
+
 }
 
 function removeCardByName(arr,name){
@@ -91,4 +113,44 @@ function lastId(arr){
      }
      return lastId;
 }
+
+function filterMoviesByType(arr){
+  let allTypes=[];
+  for(let i=0;i<arr.length;i++){
+   
+    let types=arr[i].type.split("|");
+
+
+    types.forEach(element => {
+        if(allTypes.includes(element)==false){
+            allTypes.push(element);
+        }
+
+    });
+  }
+
+  return allTypes.sort();
+}
+
+function createOption(option){
+    return `
+      <option value="${option.toLowerCase()}">${option}</option>
+    `
+}
+
+function createOptions(options){
+
+    let text=" ";
+    for(let i=0;i<options.length;i++){
+        text+=createOption(options[i]);
+    }
+    return text;
+}
+
+
+function update(movies){
+    cardscontainer.innerHTML=createCards(movies);
+    typeselector.innerHTML=createOptions(filterMoviesByType(movies));
+}
+
 

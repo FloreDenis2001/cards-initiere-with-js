@@ -8,7 +8,29 @@ let nameOfMovie=document.querySelector(".add-nameOfMovie");
 let typeMovie=document.querySelector(".type-movie");
 let durationMovie=document.querySelector(".duration-movie");
 let addBtn=document.querySelector(".add-btn");
+let btnfilter=document.querySelector(".btn-filters");
+let filterSection=document.querySelector(".filter");
+let typeselector=document.querySelector(".type-select");
 
+postSection.style.display='none';
+filterSection.style.display='none';
+
+typeselector.innerHTML=createOptions(filterMoviesByType(movies));
+
+
+typeselector.addEventListener("change",(e)=>{
+      
+    cardscontainer.innerHTML=createCards(findByType(movies,typeselector.value));
+})
+
+btnfilter.addEventListener("click",(e)=>{
+   if(filterSection.style.display==='none'){
+      filterSection.style.display='flex';
+      postSection.style.display='none';
+   }else {
+    filterSection.style.display='none';
+   }
+})
 cardscontainer.innerHTML=createCards(movies);
 
 //SEARCH FILTER
@@ -28,13 +50,15 @@ cardscontainer.addEventListener("click",(e)=>{
      movies=removeCardById(movies,+id);
      cardscontainer.innerHTML=createCards(movies);
   }
+  update(movies);
 })
 
 //ADD MOVIE
-postSection.style.display='none';
+
 btnPost.addEventListener("click",(e)=>{
   if(postSection.style.display==='none'){
      postSection.style.display='flex';
+     filterSection.style.display='none';
   }else {
     postSection.style.display='none';
   }

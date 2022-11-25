@@ -30,8 +30,8 @@
         <section class="post">  
 
             <div class="add-post">
-            <input class="add-nameOfMovie" type="text" placeholder="nameOfMovie">
-            <input class="type-movie" type="text" placeholder="type">
+            <input class="add-nameOfMovie" type="text" placeholder="Name Of Movie">
+            <input class="type-movie" type="text" placeholder="Type">
             <input class="duration-movie" type="number" min="120" max="210" placeholder="120" >
          </div>
        
@@ -41,9 +41,22 @@
          </div>
 
         </section>
+
+        <section class="filter">
+            <div class="filter-type">
+                <label for="type">Type :</label>
+                <select class="type-select" name="type" id="type"></select>
+            </div>
+
+        </section>
+
         <section class="cards-container">
         </section>
     </main>
+
+    <footer class="last-footer">
+        <p><small>&copy;</small> Flore Denis</p>
+    </footer>
   
     <script src="/data.js"></script>
     <script src="/function.js"></script>
